@@ -35,7 +35,75 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${project.basedir}/front/dist</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+
+            <!--&lt;!&ndash; 配置前端Maven插件，用于集成前端构建工具 &ndash;&gt;
+            <plugin>
+                &lt;!&ndash; 插件的组ID &ndash;&gt;
+                <groupId>com.github.eirslett</groupId>
+                &lt;!&ndash; 插件的工件ID &ndash;&gt;
+                <artifactId>frontend-maven-plugin</artifactId>
+                &lt;!&ndash; 插件的版本 &ndash;&gt;
+                <version>1.15.1</version>
+                <configuration>
+                    <nodeVersion>v22.11.0</nodeVersion>
+                    <yarnVersion>v1.22.22</yarnVersion>
+                    &lt;!&ndash; node安装路径 &ndash;&gt;
+                    <installDirectory>${settings.localRepository}</installDirectory>
+                    &lt;!&ndash; 前端代码路径 &ndash;&gt;
+                    <workingDirectory>${basedir}</workingDirectory>
+                </configuration>
+                &lt;!&ndash; 插件的执行配置 &ndash;&gt;
+                <executions>
+                    &lt;!&ndash; 检查是否安装node npm &ndash;&gt;
+                    <execution>
+                        <id>install node and yarn</id>
+                        <goals>
+                            <goal>install-node-and-yarn</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+
+                    &lt;!&ndash; npm install &ndash;&gt;
+                    <execution>
+                        <id>yarn</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>yarn config set registry https://registry.npmmirror.com</arguments>
+                        </configuration>
+                    </execution>
+
+                    &lt;!&ndash; 定义一个执行任务 &ndash;&gt;
+                    <execution>
+                        &lt;!&ndash; 任务的唯一标识 &ndash;&gt;
+                        <id>npm run build-prod</id>
+                        &lt;!&ndash; 任务的目标 &ndash;&gt;
+                        <goals>
+                            &lt;!&ndash; 使用npm命令 &ndash;&gt;
+                            <goal>npm</goal>
+                        </goals>
+                        &lt;!&ndash; 任务的特定配置 &ndash;&gt;
+                        <configuration>
+                            &lt;!&ndash; npm命令的参数 &ndash;&gt;
+                            <arguments>run build-prod</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
         </plugins>
     </build>
-
 </project>

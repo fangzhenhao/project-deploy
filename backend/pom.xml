@@ -9,11 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.skytech</groupId>
-    <artifactId>project-deploy</artifactId>
+    <artifactId>backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>project-deploy</name>
-    <description>project-deploy</description>
+    <name>backend</name>
+    <description>backend</description>
     <url/>
     <licenses>
         <license/>
@@ -21,9 +20,6 @@
     <developers>
         <developer/>
     </developers>
-    <modules>
-        <module>front</module>
-    </modules>
     <scm>
         <connection/>
         <developerConnection/>

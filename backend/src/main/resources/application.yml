@@ -1,1 +1,8 @@
-spring.application.name=backend
+server:
+  port: 7777
+  servlet:
+    context-path: /project-deploy
+
+spring:
+  application:
+    name: backend

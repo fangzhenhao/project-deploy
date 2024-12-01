@@ -33,3 +33,7 @@ build/
 .vscode/
 
 *.lock
+
+/front/dist/
+/front/node_modules/
+/front/yarn.lock

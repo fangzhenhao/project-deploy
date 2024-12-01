@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const http = axios.create({
-  baseURL: '/api',
+  baseURL: '/project-deploy',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json'

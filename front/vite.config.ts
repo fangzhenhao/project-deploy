@@ -11,7 +11,7 @@ export default defineConfig(({mode}) => {
             open: true,
             host: true,
             proxy: {
-                '/api': {
+                '/project-deploy': {
                     target: env.VITE_API_URL,
                     changeOrigin: true,
                     rewrite: (path) => path.replace(/^\/api/, '')
@@ -19,8 +19,12 @@ export default defineConfig(({mode}) => {
             }
         },
 
+        // base: process.env.NODE_ENV === 'production' ? '/project-deploy/' : '/',
+        base: '/project-deploy/',
+
         build: {
-            outDir: 'dist'
+            outDir: 'dist',
+            base: '/project-deploy/'
         },
 
         define: {
